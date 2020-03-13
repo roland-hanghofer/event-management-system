@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ems-app/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-core/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-dal/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-logic/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-security/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-data-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-user-management-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ems-ticket-management-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

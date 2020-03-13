@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ems-app" />
+        <module name="ems-ticket-management-service" />
+        <module name="ems-domain" />
+        <module name="ems-data-service" />
+        <module name="ems-core" />
+        <module name="ems-user-management-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ems-app" target="1.8" />
+      <module name="ems-core" target="1.8" />
+      <module name="ems-data-service" target="1.8" />
+      <module name="ems-domain" target="1.8" />
+      <module name="ems-ticket-management-service" target="1.8" />
+      <module name="ems-user-management-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ems-app" options="-parameters" />
+      <module name="ems-core" options="-parameters" />
+      <module name="ems-data-service" options="-parameters" />
+      <module name="ems-domain" options="-parameters" />
+      <module name="ems-ticket-management-service" options="-parameters" />
+      <module name="ems-user-management-service" options="-parameters" />
+    </option>
+  </component>
+</project>
