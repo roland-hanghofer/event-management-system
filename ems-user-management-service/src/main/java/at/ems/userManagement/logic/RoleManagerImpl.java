@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Component
-public class RoleManagementImpl implements RoleManagement{
+public class RoleManagerImpl implements RoleManager {
     @Autowired
     private RoleRepository roleRepository;
 

@@ -14,13 +14,13 @@ import javax.transaction.Transactional;
 @Component
 public class InitUserData implements CommandLineRunner {
     @Autowired
-    UserManagement userManagement;
+    UserManager userManager;
 
     @Autowired
-    RoleManagement roleManagement;
+    RoleManager roleManager;
 
     @Autowired
-    PrivilegeManagement privilegeManagement;
+    PrivilegeManager privilegeManager;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -54,15 +54,15 @@ public class InitUserData implements CommandLineRunner {
         roles[1].addPrivilege(privileges[2]);
 
         for (Role role : roles) {
-            roleManagement.saveRole(role);
+            roleManager.saveRole(role);
         }
 
         for (Privilege privilege : privileges) {
-            privilegeManagement.savePrivilege(privilege);
+            privilegeManager.savePrivilege(privilege);
         }
 
         for (User user : users) {
-            userManagement.saveUser(user);
+            userManager.saveUser(user);
         }
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.Collection;
 import java.util.Optional;
 
-public interface RoleManagement {
+public interface RoleManager {
     Collection<Role> findAll();
 
     Optional<Role> getRoleByName(String name);

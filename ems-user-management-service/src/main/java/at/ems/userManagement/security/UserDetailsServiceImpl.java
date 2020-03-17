@@ -1,12 +1,10 @@
 package at.ems.userManagement.security;
 
-import at.ems.domain.userManagement.Privilege;
 import at.ems.domain.userManagement.Role;
-import at.ems.userManagement.logic.PrivilegeManagement;
-import at.ems.userManagement.logic.UserManagement;
+import at.ems.userManagement.logic.PrivilegeManager;
+import at.ems.userManagement.logic.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -22,14 +20,14 @@ import java.util.stream.Collectors;
 @Primary
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    private PrivilegeManagement privilegeManagement;
+    private PrivilegeManager privilegeManager;
 
     @Autowired
-    private UserManagement userManagement;
+    private UserManager userManager;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<at.ems.domain.userManagement.User> user = userManagement.getUserByEmail(email);
+        Optional<at.ems.domain.userManagement.User> user = userManager.getUserByEmail(email);
 
         if (!user.isPresent()) {
             return null;
@@ -50,7 +48,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     private List<String> getPrivileges(Collection<Role> roles) {
-        return privilegeManagement.getPrivilegesForRoles(roles).stream()
+        return privilegeManager.getPrivilegesForRoles(roles).stream()
                 .map(privilege -> privilege.getName())
                 .collect(Collectors.toList());
     }

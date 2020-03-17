@@ -12,12 +12,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-public class PrivilegeManagementImpl implements PrivilegeManagement {
+public class PrivilegeManagerImpl implements PrivilegeManager {
     @Autowired
     private PrivilegeRepository privilegeRepository;
 
     @Autowired
-    private RoleManagement roleManagement;
+    private RoleManager roleManager;
 
     @Override
     public Collection<Privilege> findAll() {
@@ -41,7 +41,7 @@ public class PrivilegeManagementImpl implements PrivilegeManagement {
     @Override
     @Transactional
     public Collection<Privilege> getPrivilegesForRole(String roleName) {
-        return roleManagement.getRoleByName(roleName).get().getPrivileges();
+        return roleManager.getRoleByName(roleName).get().getPrivileges();
     }
 
     @Override

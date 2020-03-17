@@ -5,7 +5,7 @@ import at.ems.domain.userManagement.User;
 import java.util.Collection;
 import java.util.Optional;
 
-public interface UserManagement {
+public interface UserManager {
     Collection<User> getUsers();
 
     Optional<User> getUserByEmail(String email);

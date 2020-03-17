@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Component
-public class UserManagementImpl implements UserManagement {
+public class UserManagerImpl implements UserManager {
     @Autowired
     private UserRepository userRepository;
 

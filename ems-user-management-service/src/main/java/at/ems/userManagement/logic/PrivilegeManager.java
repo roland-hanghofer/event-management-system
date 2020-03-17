@@ -5,7 +5,7 @@ import at.ems.domain.userManagement.Role;
 
 import java.util.Collection;
 
-public interface PrivilegeManagement {
+public interface PrivilegeManager {
     Collection<Privilege> findAll();
 
     void savePrivilege(Privilege privilege);
