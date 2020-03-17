@@ -81,4 +81,7 @@ angular.json:
 
 #### Erstellen der Services 
 
-'''npm install ng-swagger-gen --save-dev'''
+```
+npm install ng-swagger-gen --save-dev
+node_modules/.bin/ng-swagger-gen -i http://127.0.0.1:8080/v2/api-docs
+```
