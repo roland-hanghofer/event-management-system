@@ -8,10 +8,10 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>at.event-mangement-system</groupId>
-	<artifactId>ems-app</artifactId>
+	<groupId>at.event-management-system</groupId>
+	<artifactId>ems</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ems-app</name>
+	<name>ems</name>
 	<description></description>
 
 	<properties>
@@ -19,16 +19,39 @@
 		<azure.version>2.2.0</azure.version>
 	</properties>
 
-	<dependencies>
+	<dependencies> <!--
 		<dependency>
-			<groupId>at.event-mangement-system</groupId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>-->
+
+		<dependency>
+			<groupId>at.event-management-system</groupId>
 			<artifactId>ems-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
-			<groupId>at.event-mangement-system</groupId>
+			<groupId>at.event-management-system</groupId>
 			<artifactId>ems-domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>at.event-management-system</groupId>
+			<artifactId>ems-data-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>at.event-management-system</groupId>
+			<artifactId>ems-user-management-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>at.event-management-system</groupId>
+			<artifactId>ems-ticket-management-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 

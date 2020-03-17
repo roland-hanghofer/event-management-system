@@ -1,5 +1,6 @@
 package at.ems.domain.userManagement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +25,7 @@ public class Privilege {
     private String name;
 
     @ManyToMany(mappedBy = "privileges")
+    @JsonIgnore
     private Collection<Role> roles = new HashSet<>();
 
     //***************************************************

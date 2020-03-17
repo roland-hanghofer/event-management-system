@@ -1,5 +1,6 @@
 package at.ems.domain.userManagement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,18 +26,20 @@ public class User {
     private String lastName = "";
     @Column(nullable = false, unique = true)
     private String email = "";
+    @Column(nullable = false)
     private String password = "";
 
     private boolean enabled = true;
     private boolean tokenExpired = false;
 
-    @ManyToMany
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
+        @ManyToMany
+        @JoinTable(
+                name = "users_roles",
+                joinColumns = @JoinColumn(
+                        name = "user_id", referencedColumnName = "id"),
+                inverseJoinColumns = @JoinColumn(
+                        name = "role_id", referencedColumnName = "id"))
+        @JsonIgnore
     private Collection<Role> roles = new HashSet<>();
 
     //***************************************************

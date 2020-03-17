@@ -1,6 +1,7 @@
 package at.ems.domain.userManagement;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
     private Collection<User> users = new HashSet<>();
 
     @ManyToMany
@@ -32,6 +34,7 @@ public class Role {
                     name = "role_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "privilege_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Collection<Privilege> privileges = new HashSet<>();
 
     //***************************************************
@@ -41,7 +44,6 @@ public class Role {
     }
 
     //***************************************************
-
     public void addUser(User user) {
         user.getRoles().add(this);
         users.add(user);

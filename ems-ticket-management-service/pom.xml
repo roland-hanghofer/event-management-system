@@ -8,7 +8,7 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>at.event-mangement-system</groupId>
+	<groupId>at.event-management-system</groupId>
 	<artifactId>ems-ticket-management-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ems-ticket-management-service</name>
@@ -20,7 +20,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>at.event-mangement-system</groupId>
+			<groupId>at.event-management-system</groupId>
 			<artifactId>ems-domain</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

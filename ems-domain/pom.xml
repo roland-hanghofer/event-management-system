@@ -8,7 +8,7 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>at.event-mangement-system</groupId>
+	<groupId>at.event-management-system</groupId>
 	<artifactId>ems-domain</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ems-domain</name>
@@ -20,7 +20,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>at.event-mangement-system</groupId>
+			<groupId>at.event-management-system</groupId>
 			<artifactId>ems-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
@@ -46,9 +46,5 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-    </dependencies>
+	</dependencies>
 </project>
