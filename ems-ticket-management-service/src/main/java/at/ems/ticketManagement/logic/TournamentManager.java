@@ -1,23 +1,19 @@
 package at.ems.ticketManagement.logic;
 
-import at.ems.domain.ticketManagement.Contingent;
-import at.ems.domain.ticketManagement.Sponsor;
-import at.ems.domain.ticketManagement.Tournament;
-import at.ems.domain.ticketManagement.TournamentDay;
+import at.ems.domain.ticketManagement.*;
+import org.springframework.data.util.Pair;
 
+import javax.persistence.Tuple;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Map;
 
 public interface TournamentManager {
-    void addTournament(Tournament tournament, LocalDate start, LocalDate end);
+    Tournament addTournament(Tournament tournament);
 
     Collection<Tournament> getTournaments();
 
-    Collection<TournamentDay> getTournamentDays(Tournament tournament);
+    Collection<TournamentDay> getTournamentDays(Long tournamentId);
 
-    void addSponsor(Sponsor sponsor);
-
-    void addContingent(Contingent contingent);
-
-    void addTicket(TournamentDay tournamentDay, Sponsor sponsor);
+    Map<TournamentDay, Collection<Pair<Ticket, Sponsor>>> getTournamentDaysAndTickets(Long tournamentId);
 }

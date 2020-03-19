@@ -261,7 +261,7 @@ class UserManagementControllerImplService extends __BaseService {
     let __body: any = null;
     __body = params.oldPassword;
     __body = params.newPassword;
-    __body = params.email;
+
     let req = new HttpRequest<any>(
       'POST',
       this.rootUrl + `/users/${encodeURIComponent(params.email)}/changePassword`,

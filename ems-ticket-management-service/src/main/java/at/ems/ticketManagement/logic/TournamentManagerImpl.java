@@ -1,48 +1,70 @@
 package at.ems.ticketManagement.logic;
 
+import at.ems.data.ticketManagement.TournamentDayRepository;
 import at.ems.data.ticketManagement.TournamentRepository;
-import at.ems.domain.ticketManagement.Contingent;
-import at.ems.domain.ticketManagement.Sponsor;
-import at.ems.domain.ticketManagement.Tournament;
-import at.ems.domain.ticketManagement.TournamentDay;
+import at.ems.domain.ticketManagement.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.Collection;
+import java.util.*;
+import java.util.stream.Collectors;
 
+@Component
 public class TournamentManagerImpl implements TournamentManager {
     @Autowired
     private TournamentRepository tournamentRepository;
 
+    @Autowired
+    private TournamentDayRepository tournamentDayRepository;
+
     @Override
-    public void addTournament(Tournament tournament, LocalDate start, LocalDate end) {
-        for (LocalDate day = start; day.isBefore(day); day.plusDays(1)) {
-            tournament.addDay(new TournamentDay());
+    @Transactional
+    public Tournament addTournament(Tournament tournament) {
+        tournament = tournamentRepository.save(tournament);
+        for (LocalDate day = tournament.getStartDate(); day.isBefore(tournament.getEndDate()); day = day.plusDays(1)) {
+            tournament.addDay(new TournamentDay(day));
         }
+        tournament.getDays().forEach(d -> tournamentDayRepository.save(d));
+        return tournament;
     }
 
     @Override
     public Collection<Tournament> getTournaments() {
-        return null;
+        List<Tournament> tournaments = tournamentRepository.findAll();
+        tournaments.sort((t1, t2) -> t1.getStartDate().compareTo(t2.getStartDate()));
+        return tournaments;
     }
 
     @Override
-    public Collection<TournamentDay> getTournamentDays(Tournament tournament) {
-        return null;
+    @Transactional
+    public Collection<TournamentDay> getTournamentDays(Long tournamentId) {
+        return getTournament(tournamentId).getDays();
     }
 
     @Override
-    public void addSponsor(Sponsor sponsor) {
-
+    @Transactional
+    public Map<TournamentDay, Collection<Pair<Ticket, Sponsor>>> getTournamentDaysAndTickets(Long tournamentId) {
+        Map<TournamentDay, Collection<Pair<Ticket, Sponsor>>> map = new HashMap<>();
+        getTournament(tournamentId).getDays().forEach(d -> {
+            String s = d.toString();
+            map.put(d, d.getTickets()
+                    .stream()
+                    .map(t -> Pair.of(t, t.getSponsor()))
+                    .collect(Collectors.toList()));
+        });
+        return map;
     }
 
-    @Override
-    public void addContingent(Contingent contingent) {
+    // *************************************************************
 
-    }
-
-    @Override
-    public void addTicket(TournamentDay tournamentDay, Sponsor sponsor) {
-
+    private  Tournament getTournament(Long id) {
+        Optional<Tournament> tournament = tournamentRepository.findById(id);
+        if (!tournament.isPresent()) {
+            throw new IllegalArgumentException(String.format("Tournament with id %l does not exist", id));
+        }
+        return tournament.get();
     }
 }

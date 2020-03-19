@@ -1,6 +1,7 @@
 package at.ems.domain.ticketManagement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,9 +15,16 @@ public class Ticket {
         GoldenVipTicket,
         DaysaverTicket,
         BoxTicket,
-        PlayerspartyTicket,
-        ParkTicket
+        PlayerspartyTicket//,
+        //ParkTicket
     };
+
+    public enum PaymentMethod {
+        Invitation,
+        Cash,
+        ForAccount,
+        Cooperation
+    }
 
     @Id
     @GeneratedValue
@@ -24,6 +32,21 @@ public class Ticket {
 
     @NonNull
     private TicketType type;
+
+    @NotNull
+    private PaymentMethod paymentMethod;
+
+    @NotNull
+    private String invoiceAddress;
+
+
+
+
+    private int category; //for daysaver tickets only
+
+    private boolean catering;
+
+    private boolean parking;
 
     @ManyToOne
     @EqualsAndHashCode.Exclude

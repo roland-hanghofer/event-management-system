@@ -28,6 +28,6 @@ public interface UserManagementController {
     ResponseEntity<?> deleteUser(@PathVariable("email") String email);
 
     @PostMapping("/{email}/changePassword")
-    ResponseEntity<?> changePassword(@RequestBody String email, @RequestBody String oldPassword, @RequestBody String newPassword);
+    ResponseEntity<?> changePassword(@PathVariable("email") String email, @RequestBody String oldPassword, @RequestBody String newPassword);
 
 }

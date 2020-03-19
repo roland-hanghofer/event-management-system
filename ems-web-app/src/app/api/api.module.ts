@@ -6,6 +6,7 @@ import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration
 import { BasicErrorControllerService } from './services/basic-error-controller.service';
 import { PrivilegeManagementControllerImplService } from './services/privilege-management-controller-impl.service';
 import { RoleManagementControllerImplService } from './services/role-management-controller-impl.service';
+import { TournamentControllerImplService } from './services/tournament-controller-impl.service';
 import { UserManagementControllerImplService } from './services/user-management-controller-impl.service';
 
 /**
@@ -24,6 +25,7 @@ import { UserManagementControllerImplService } from './services/user-management-
     BasicErrorControllerService,
     PrivilegeManagementControllerImplService,
     RoleManagementControllerImplService,
+    TournamentControllerImplService,
     UserManagementControllerImplService
   ],
 })

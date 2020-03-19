@@ -57,6 +57,7 @@ npm install primeng --save
 npm install primeicons --save
 npm install @angular/animations --save
 npm install chart.js --save
+npm install @angular/cdk --save
 ng config defaults.styleExt=scss
 ng config schematics.@schematics/angular:component.styleext scss
 ```
