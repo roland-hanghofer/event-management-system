@@ -34,10 +34,10 @@ public class Ticket {
     private TicketType type;
 
     @NotNull
-    private PaymentMethod paymentMethod;
+    private PaymentMethod paymentMethod = PaymentMethod.Cooperation;
 
     @NotNull
-    private String invoiceAddress;
+    private String invoiceAddress = "";
 
 
 

@@ -25,6 +25,9 @@ public interface TournamentController {
     @GetMapping("/getDays/{id}")
     ResponseEntity<Collection<TournamentDay>> getTournamentDays(@PathVariable("id") Long tournamentId);
 
+    @GetMapping("/days/{id}/tickets")
+    ResponseEntity<Collection<Ticket>> getTicketForTournamentDay(@PathVariable("id") Long dayId);
+
     @GetMapping("/getDaysAndTickets/{id}")
     ResponseEntity<Map<TournamentDay, Collection<Pair<Ticket, Sponsor>>>> getTournamentDaysAndTickets(@PathVariable("id") Long tournamentId);
 }
