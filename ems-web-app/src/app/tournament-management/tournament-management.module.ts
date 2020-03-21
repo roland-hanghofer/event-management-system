@@ -4,6 +4,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {TournamentOverviewComponent} from './tournament-overview/tournament-overview.component';
+import { TournamentTicketTableComponent } from './tournament-overview/tournament-ticket-table/tournament-ticket-table.component';
+
 import {ApiModule} from '../api/api.module';
 
 import {PanelModule} from 'primeng/panel';
@@ -12,7 +14,7 @@ import {TableModule} from 'primeng/table';
 
 
 @NgModule({
-    declarations: [TournamentOverviewComponent],
+    declarations: [TournamentOverviewComponent, TournamentTicketTableComponent],
     imports: [
         CommonModule,
         BrowserModule,

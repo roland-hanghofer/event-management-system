@@ -8,6 +8,7 @@ import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
 import { Tournament } from '../models/tournament';
+import { Ticket } from '../models/ticket';
 import { TournamentDay } from '../models/tournament-day';
 import { PairTicketSponsor } from '../models/pair-ticket-sponsor';
 
@@ -20,6 +21,7 @@ import { PairTicketSponsor } from '../models/pair-ticket-sponsor';
 class TournamentControllerImplService extends __BaseService {
   static readonly getTournamentsUsingGETPath = '/tournaments';
   static readonly addTournamentUsingPOSTPath = '/tournaments/add';
+  static readonly getTicketForTournamentDayUsingGETPath = '/tournaments/days/{id}/tickets';
   static readonly getTournamentDaysUsingGETPath = '/tournaments/getDays/{id}';
   static readonly getTournamentDaysAndTicketsUsingGETPath = '/tournaments/getDaysAndTickets/{id}';
 
@@ -96,6 +98,42 @@ class TournamentControllerImplService extends __BaseService {
   addTournamentUsingPOST(tournament: Tournament): __Observable<{}> {
     return this.addTournamentUsingPOSTResponse(tournament).pipe(
       __map(_r => _r.body as {})
+    );
+  }
+
+  /**
+   * @param id id
+   * @return OK
+   */
+  getTicketForTournamentDayUsingGETResponse(id: number): __Observable<__StrictHttpResponse<Array<Ticket>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/tournaments/days/${encodeURIComponent(id)}/tickets`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<Ticket>>;
+      })
+    );
+  }
+  /**
+   * @param id id
+   * @return OK
+   */
+  getTicketForTournamentDayUsingGET(id: number): __Observable<Array<Ticket>> {
+    return this.getTicketForTournamentDayUsingGETResponse(id).pipe(
+      __map(_r => _r.body as Array<Ticket>)
     );
   }
 

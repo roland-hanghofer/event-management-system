@@ -1,4 +1,3 @@
-export { ModelAndView } from './models/model-and-view';
 export { PairTicketSponsor } from './models/pair-ticket-sponsor';
 export { Privilege } from './models/privilege';
 export { Role } from './models/role';
@@ -7,4 +6,3 @@ export { Ticket } from './models/ticket';
 export { Tournament } from './models/tournament';
 export { TournamentDay } from './models/tournament-day';
 export { User } from './models/user';
-export { View } from './models/view';

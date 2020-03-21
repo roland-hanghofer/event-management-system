@@ -41,10 +41,8 @@ public class InitTournamentData implements CommandLineRunner {
 
         Collection<Tournament> tournaments = tournamentManager.getTournaments();
 
-        tournament1.getDays().forEach(d -> {
-            addTickets(d, 10, 12, 23, 14);
-        });
-        tournament1.getDays().forEach(d -> addTickets(d, 15, 22, 23, 34));
+        tournament1.getDays().forEach(d -> addTickets(d, 10 + ((Long)d.getId()).intValue(), 12, 23, 14));
+        tournament2.getDays().forEach(d -> addTickets(d, 15 + ((Long)d.getId()).intValue(), 22, 23, 34));
 
         Collection<Tournament> ts = tournamentManager.getTournaments();
         ts.forEach(t -> {

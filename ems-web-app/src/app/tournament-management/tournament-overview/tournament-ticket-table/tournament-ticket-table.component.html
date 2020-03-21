@@ -1,0 +1,36 @@
+<p-table [value]="tickets">
+    <ng-template pTemplate="header">
+        <tr>
+            <th></th>
+            <th *ngFor="let day of days">
+                {{day.date}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-values>
+        <tr>
+            <td>GoldenVipTicket {{values}}</td>
+            <td *ngFor="let day of days">
+                {{ticketsGVT.get(day.id).length}}
+            </td>
+        </tr>
+        <tr>
+            <td>DaysaverTicket</td>
+            <td *ngFor="let day of days">
+                {{ticketsDS.get(day.id).length}}
+            </td>
+        </tr>
+        <tr>
+            <td>BoxTicket</td>
+            <td *ngFor="let day of days">
+                {{ticketsB.get(day.id).length}}
+            </td>
+        </tr>
+        <tr>
+            <td>PlayerspartyTicket</td>
+            <td *ngFor="let day of days">
+                {{ticketsPP.get(day.id).length}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
