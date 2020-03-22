@@ -47,10 +47,15 @@ export class TournamentTicketTableComponent implements OnInit {
                 this.analyzeResponseStatus(response.status);
 
                 this.ticketsGVT.set(dayId, response.body.filter(t => t.type === 'GoldenVipTicket'));
-                this.tickets[0][0] += this.ticketsGVT.get(dayId).length;
                 this.ticketsDS.set(dayId, response.body.filter(t => t.type === 'DaysaverTicket'));
                 this.ticketsB.set(dayId, response.body.filter(t => t.type === 'BoxTicket'));
                 this.ticketsPP.set(dayId, response.body.filter(t => t.type === 'PlayerspartyTicket'));
+
+
+                this.tickets[0][0] += this.ticketsGVT.get(dayId).length;
+                this.tickets[0][1] += this.ticketsDS.get(dayId).length;
+                this.tickets[0][2] += this.ticketsB.get(dayId).length;
+                this.tickets[0][3] += this.ticketsPP.get(dayId).length;
             },
             error: (error) => {
                 this.analyzeResponseStatus(error.status);

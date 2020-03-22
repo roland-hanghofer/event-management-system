@@ -1,0 +1,29 @@
+<!--<p-toast [style]="{marginTop: '80px'}" position="top-left" key="tl"></p-toast>-->
+
+<div class="ui-g ui-fluid">
+    <h2>Turnier hinzufügen</h2>
+</div>
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-4">
+        <h3>Turniername</h3>
+        <input pInputText id="name"
+               placeholder="Turniername"
+               [(ngModel)]="tournament.name"/>
+    </div>
+</div>
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-4">
+        <h3>Zeitraum</h3>
+        <p-calendar [(ngModel)]="rangeDates"
+                    selectionMode="range"
+                    dateFormat="dd.mm.yy"
+                    [readonlyInput]="true"></p-calendar>
+    </div>
+</div>
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-2">
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-save" (click)="add()" label="Hinzufügen"></button>
+        </div>
+    </div>
+</div>

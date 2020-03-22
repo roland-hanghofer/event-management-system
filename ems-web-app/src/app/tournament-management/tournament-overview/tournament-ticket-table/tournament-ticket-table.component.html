@@ -2,6 +2,7 @@
     <ng-template pTemplate="header">
         <tr>
             <th></th>
+            <th>Gesamt</th>
             <th *ngFor="let day of days">
                 {{day.date}}
             </th>
@@ -9,25 +10,29 @@
     </ng-template>
     <ng-template pTemplate="body" let-values>
         <tr>
-            <td>GoldenVipTicket {{values}}</td>
+            <td>GoldenVipTicket </td>
+            <td>{{values[0]}}</td>
             <td *ngFor="let day of days">
                 {{ticketsGVT.get(day.id).length}}
             </td>
         </tr>
         <tr>
             <td>DaysaverTicket</td>
+            <td>{{values[1]}}</td>
             <td *ngFor="let day of days">
                 {{ticketsDS.get(day.id).length}}
             </td>
         </tr>
         <tr>
             <td>BoxTicket</td>
+            <td>{{values[2]}}</td>
             <td *ngFor="let day of days">
                 {{ticketsB.get(day.id).length}}
             </td>
         </tr>
         <tr>
             <td>PlayerspartyTicket</td>
+            <td>{{values[3]}}</td>
             <td *ngFor="let day of days">
                 {{ticketsPP.get(day.id).length}}
             </td>

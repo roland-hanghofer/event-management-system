@@ -1,9 +1,12 @@
-<div class="ui-fluid ui-g">
-    <div class="ui-g-8">
-        <p-accordion [multiple]="true">
-            <p-accordionTab *ngFor="let t of tournaments;" header="{{t.name}} {{t.startDate}} - {{t.endDate}}">
-                <app-tournament-ticket-table [tournament]="t"></app-tournament-ticket-table>
-            </p-accordionTab>
-        </p-accordion>
+<div class="ui-fluid">
+    <h2 class="first">Turniere</h2>
+    <div class="ui-g">
+        <div class="ui-g-8">
+            <p-accordion [multiple]="true">
+                <p-accordionTab *ngFor="let t of tournaments;" header="{{t.name}} {{t.startDate}} - {{t.endDate}}">
+                    <app-tournament-ticket-table [tournament]="t"></app-tournament-ticket-table>
+                </p-accordionTab>
+            </p-accordion>
+        </div>
     </div>
 </div>

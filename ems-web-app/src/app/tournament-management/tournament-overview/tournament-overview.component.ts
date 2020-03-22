@@ -3,11 +3,13 @@ import {TournamentControllerImplService} from '../../api/services/tournament-con
 import {Tournament} from '../../api/models/tournament';
 import {TournamentDay} from '../../api/models/tournament-day';
 import {Ticket} from '../../api/models/ticket';
+import {MessageService} from 'primeng';
 
 @Component({
     selector: 'app-tournament-overview',
     templateUrl: './tournament-overview.component.html',
-    styleUrls: ['./tournament-overview.component.css']
+    styleUrls: ['./tournament-overview.component.css'],
+    providers: [MessageService]
 })
 
 
