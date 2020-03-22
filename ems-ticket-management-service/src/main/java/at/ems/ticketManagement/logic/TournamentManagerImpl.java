@@ -24,7 +24,7 @@ public class TournamentManagerImpl implements TournamentManager {
     @Transactional
     public Tournament addTournament(Tournament tournament) {
         tournament = tournamentRepository.save(tournament);
-        for (LocalDate day = tournament.getStartDate(); day.isBefore(tournament.getEndDate()); day = day.plusDays(1)) {
+        for (LocalDate day = tournament.getStartDate(); day.isBefore(tournament.getEndDate()) || day.isEqual(tournament.getEndDate()); day = day.plusDays(1)) {
             tournament.addDay(new TournamentDay(day));
         }
         tournament.getDays().forEach(d -> tournamentDayRepository.save(d));
