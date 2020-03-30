@@ -9,6 +9,7 @@ import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTER
 import { UserManagementModule} from './user-management/user-management.module';
 import { DashboardModule} from './dashboard/dashboard.module';
 import { TournamentManagementModule} from './tournament-management/tournament-management.module';
+import {FullCalendarModule} from 'primeng/fullcalendar';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { TournamentManagementModule} from './tournament-management/tournament-ma
         HttpClientModule,
         UserManagementModule,
         DashboardModule,
-        TournamentManagementModule
+        TournamentManagementModule,
+        FullCalendarModule
 
     ],
     providers: [],

@@ -58,6 +58,8 @@ npm install primeicons --save
 npm install @angular/animations --save
 npm install chart.js --save
 npm install @angular/cdk --save
+npm install quill --save
+npm install fullcalendar --save
 ng config defaults.styleExt=scss
 ng config schematics.@schematics/angular:component.styleext scss
 ```
@@ -73,10 +75,13 @@ angular.json:
     "src/styles.css",
     "node_modules/primeicons/primeicons.css",
     "node_modules/primeng/resources/themes/luna-blue/theme.css",
-    "node_modules/primeng/resources/primeng.min.css"
+    "node_modules/primeng/resources/primeng.min.css",
+    "node_modules/fullcalendar/dist/fullcalendar.min.css"
 ],
 "scripts": [
-    "node_modules/chart.js/dist/Chart.js"
+    "node_modules/chart.js/dist/Chart.js",
+    "node_modules/moment/min/moment.min.js",
+    "node_modules/fullcalendar/dist/fullcalendar.min.js"
 ]
 ```
 
@@ -86,3 +91,7 @@ angular.json:
 npm install ng-swagger-gen --save-dev
 node_modules/.bin/ng-swagger-gen -i http://127.0.0.1:8080/v2/api-docs
 ```
+
+### BaseComponent
+
+Injector: https://devblogs.microsoft.com/premier-developer/angular-how-to-simplify-components-with-typescript-inheritance/

@@ -63,6 +63,10 @@ export class TournamentTicketTableComponent implements OnInit {
         });
     }
 
+    getTicketCountForDay(tickets: Map<number, Ticket[]>, day: number) {
+        return tickets.has(day) ? tickets.get(day).length : 0;
+    }
+
     analyzeResponseStatus(status: number) {
         if (status === 401 || status === 403) {
             this.messages.push({

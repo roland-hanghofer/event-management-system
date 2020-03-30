@@ -20,8 +20,8 @@ import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {MenuModule} from 'primeng/menu';
 import {CalendarModule} from 'primeng/calendar';
-//import {ToastModule} from 'primeng/toast';
-
+import {ToastModule} from 'primeng/toast';
+import { FullCalendarModule } from 'primeng/fullcalendar';
 
 @NgModule({
     declarations: [
@@ -45,8 +45,9 @@ import {CalendarModule} from 'primeng/calendar';
         DialogModule,
         InputTextModule,
         MenuModule,
-        CalendarModule/*,
-        ToastModule*/
+        CalendarModule,
+        ToastModule,
+        FullCalendarModule
     ],
     exports: [
         TournamentOverviewComponent

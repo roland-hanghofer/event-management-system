@@ -13,28 +13,28 @@
             <td>GoldenVipTicket </td>
             <td>{{values[0]}}</td>
             <td *ngFor="let day of days">
-                {{ticketsGVT.get(day.id).length}}
+                {{getTicketCountForDay(ticketsGVT,day.id)}}
             </td>
         </tr>
         <tr>
             <td>DaysaverTicket</td>
             <td>{{values[1]}}</td>
             <td *ngFor="let day of days">
-                {{ticketsDS.get(day.id).length}}
+                {{getTicketCountForDay(ticketsDS,day.id)}}
             </td>
         </tr>
         <tr>
             <td>BoxTicket</td>
             <td>{{values[2]}}</td>
             <td *ngFor="let day of days">
-                {{ticketsB.get(day.id).length}}
+                {{getTicketCountForDay(ticketsB,day.id)}}
             </td>
         </tr>
         <tr>
             <td>PlayerspartyTicket</td>
             <td>{{values[3]}}</td>
             <td *ngFor="let day of days">
-                {{ticketsPP.get(day.id).length}}
+                {{getTicketCountForDay(ticketsPP,day.id)}}
             </td>
         </tr>
     </ng-template>
